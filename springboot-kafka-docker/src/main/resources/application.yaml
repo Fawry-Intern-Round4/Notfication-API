@@ -1,14 +1,23 @@
 server:
-  port: 8081
+  port: 0
 spring:
+  mail:
+    host: smtp.gmail.com
+    username: mohamed.alaa32.msa@gmail.com
+    password: sydz lezg mszg yejd
+    port: 587
+    properties:
+      mail:
+        smtp:
+          starttls:
+            enable: true
+          auth: true
   kafka:
     consumer:
-      bootstarp-servers: localhost:9092
-      group-id: "my_group_id"
+      bootstrap-servers: localhost:9092
+      group-id: "notification_id"
       auto-offset-reset: earliest
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-    producer:
-      bootstarp-servers: locahost:9092
-      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.type.mapping: event:com.fawry.dto.OrderDTO
