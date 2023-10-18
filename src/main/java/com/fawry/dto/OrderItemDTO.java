@@ -16,14 +16,14 @@ import java.math.BigDecimal;
 public class OrderItemDTO {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private Long id;
-    private Long productID;
+    private Long productId;
     private BigDecimal price;
     private int quantity;
 
     @Override
     public String toString() {
         return "\nitem id: "
-                + this.productID
+                + this.productId
                 + "\nitem price: "
                 + this.price
                 + "\nitem quantity: "
