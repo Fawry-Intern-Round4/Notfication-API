@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: notification-api
+spec:
+  selector:
+    matchLabels:
+      app: notification-api
+  template:
+    metadata:
+      labels:
+        app: notification-api
+    spec:
+      containers:
+      - name: notification-api
+        image: amrmousa1682/notification-api:latest
+        resources:
+          limits:
+            memory: "250Mi"
+            cpu: "500m"
